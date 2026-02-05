@@ -1,0 +1,8 @@
+para roda o aplicativo para teste: 
+
+npm start
+
+
+baixar as npm do node.js para:
+
+npm install
