@@ -1,0 +1,63 @@
+{
+  "name": "unisoc-flash-tools",
+  "version": "1.0.0",
+  "description": "Ferramenta de flash para dispositivos Unisoc/SPD",
+  "main": "main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "build": "electron-builder build"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  },
+  "build": {
+    "appId": "com.vinicius.unisocflashtools",
+    "productName": "Unisoc Flash Tools",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules",
+      "!dist",
+      "!.git",
+      "!*.md",
+      "!*.log"
+    ],
+    "extraResources": [
+      {
+        "from": "spd_dump",
+        "to": "spd_dump",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png",
+      "category": "Utility"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    }
+  },
+  "keywords": ["unisoc", "flash", "firmware", "spd", "android"],
+  "author": "Vinicius",
+  "license": "ISC"
+}
